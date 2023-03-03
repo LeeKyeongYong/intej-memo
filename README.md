@@ -1,8 +1,8 @@
 # 🎼 InteJ_Memo (JPA 리마인드 학습용)
 <hr/>
-## 🎤 Key Features
-1. Editing and deleting single-line memos
-2. Editing and deleting of single-line memo comments
+## 🎤 Key Features<br/>
+1. Editing and deleting single-line memos<br/>
+2. Editing and deleting of single-line memo comments<br/>
 <br/>
 ## 🔧 Tool & Skill Stack
 <table>
