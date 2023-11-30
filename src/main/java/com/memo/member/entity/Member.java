@@ -11,7 +11,8 @@ import java.util.List;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
-@Entity
+
+@Entity(name = "com.memo.member.entity.Member")
 @Getter
 @Setter
 @Builder
