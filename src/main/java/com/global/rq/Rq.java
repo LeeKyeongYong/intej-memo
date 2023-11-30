@@ -118,7 +118,7 @@ public class Rq {
         String exStr = Ut.exception.toString(ex);
         req.setAttribute("exStr", exStr);
 
-        log.debug(exStr);
+        //log.debug(exStr);
 
         return historyBack(ex.getMessage());
     }

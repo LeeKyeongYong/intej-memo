@@ -1,6 +1,5 @@
 package com.memo.member.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,7 +19,6 @@ import static lombok.AccessLevel.PROTECTED;
 @AllArgsConstructor(access = PROTECTED)
 @EqualsAndHashCode
 public class Member {
-
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @EqualsAndHashCode.Include
@@ -28,13 +26,13 @@ public class Member {
     private String username;
     private String password;
 
-    public boolean isAdmin(){
+    public boolean isAdmin() {
         return username.equals("admin");
     }
 
-    public List<SimpleGrantedAuthority> getAuthorities(){
-        if(isAdmin()){
-            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),new SimpleGrantedAuthority("ROLE_MEMBER"));
+    public List<SimpleGrantedAuthority> getAuthorities() {
+        if (isAdmin()) {
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_MEMBER"));
         }
 
         return List.of(new SimpleGrantedAuthority("ROLE_MEMBER"));
