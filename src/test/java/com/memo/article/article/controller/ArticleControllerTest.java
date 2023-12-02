@@ -58,4 +58,17 @@ public class ArticleControllerTest {
 
     //Get /article/detail{id}
 
+    // GET /article/write
+
+    // POST /article/write
+
+    // GET /article/modify/{id} 작성자가 아니라면 수정폼 볼수없음
+
+    // GET /article/modify/{id} 게시물 수정폼 페이지
+
+    //t7 게시물 수정폼 처리
+
+    //t8 게시물 삭제
+
+
 }
