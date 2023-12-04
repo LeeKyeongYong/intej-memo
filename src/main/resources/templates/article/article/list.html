@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{global/layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>게시글 목록</title>
 </head>
 <body>
+    <div layout:fragment="content">
+        <h1 class="font-bold mb-2"><i class="fa-solid fa-list"></i> 게시글 목록</h1>
 
+        <ul th:if="${articles.size} > 0">
+            <li th:each="article : ${articles.reversed}">
+                <a class="link" th:href="|/article/detail/${article.id}|">
+                    <th:block th:text="|${article.id}번 : ${article.title}|"></th:block>
+                    <th:block th:text="|by ${article.author.username}|"></th:block>
+                </a>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>

@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{global/layout}">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="|게시글 내용 - ${article.id}. ${article.title}|"></title>
 </head>
+
 <body>
+<div layout:fragment="content">
+
+    <h1 class="font-bold mb-2">
+        <i class="fa-regular fa-newspaper"></i> 게시글 내용</h1>
+    <hr>
+
+    <div class="mt-2">
+        <div class="badge badge-outline" th:text="${article.id}"></div>
+        <span th:text="${article.title}"></span>
+    </div>
+
+    <div class="mt-2 whitespace-pre-line" th:text="${article.body}"></div>
+
+    <hr class="mt-2">
+
+    <div class="mt-2 flex gap-2 justify-center">
+        <a th:if="${@articleService.canModify(@rq.member, article)}" class="btn-link"
+           th:href="|/article/modify/${article.id}|">글 수정</a>
+        <a method="DELETE" th:if="${@articleService.canDelete(@rq.member, article)}" class="btn-link"
+           onclick="return confirm('정말로 삭제하시겠습니까?');" th:href="|/article/delete/${article.id}|">
+            글 삭제
+        </a>
+    </div>
+
+</div>
 
 </body>
+
+
 </html>
