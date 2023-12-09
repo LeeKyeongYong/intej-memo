@@ -1,7 +1,7 @@
 package com.memo.home.home.controller;
 
 
-import com.memo.intejmemo.controller.AdmHomeController;
+import com.memo.intejmemo.domain.home.home.controller.AdmHomeController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
