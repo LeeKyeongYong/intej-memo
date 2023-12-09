@@ -1,9 +1,9 @@
 package com.memo.member.member.controller;
 
 
-import com.memo.member.controller.MemberController;
-import com.memo.member.entity.Member;
-import com.memo.member.service.MemberService;
+import com.memo.intejmemo.member.controller.MemberController;
+import com.memo.intejmemo.member.entity.Member;
+import com.memo.intejmemo.member.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

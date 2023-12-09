@@ -1,14 +1,13 @@
 package com.memo.article.article.controller;
 
-import com.memo.intejmemo.domain.controller.ArticleController;
-import com.memo.intejmemo.domain.entity.Article;
-import com.memo.intejmemo.domain.service.ArticleService;
+import com.memo.intejmemo.domain.article.article.controller.ArticleController;
+import com.memo.intejmemo.domain.article.article.entity.Article;
+import com.memo.intejmemo.domain.article.article.service.ArticleService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
