@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class MainController {
 
     private final Rq rq;
+    /*
     @RequestMapping(value = {"/", "index","memoList"} , method = {RequestMethod.GET, RequestMethod.POST})
     public void IndexMemo(HttpServletRequest request, Model model){
         String httpMethod = request.getMethod();
@@ -33,7 +34,9 @@ public class MainController {
         // 공통 처리 로직
     }
 
-    @GetMapping("/")
+     */
+
+    @RequestMapping(value = {"/", "index","memoList"} , method = {RequestMethod.GET, RequestMethod.POST})
     public String goToArticleList(String msg){
         return rq.redirect("/article/list",msg);
     }

@@ -11,25 +11,27 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 
 @Configuration
 public class SecurityConfig {
-
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(
                         csrf -> csrf
-                            .ignoringRequestMatchers(
-                                    "/h2-console/**"
-                            )
+                                .ignoringRequestMatchers(
+                                        "/h2-console/**"
+                                )
                 )
-                .headers(headers -> headers.addHeaderWriter(
-                    new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)
-                ))
+                .headers(
+                        headers -> headers
+                                .addHeaderWriter(
+                                        new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)
+                                )
+                )
                 .authorizeHttpRequests(
-                   authorizeHttpRequests -> authorizeHttpRequests
-                           .requestMatchers("/adm/**")
-                           .hasRole("ADMIN")
-                           .anyRequest()
-                           .permitAll()
+                        authorizeHttpRequests -> authorizeHttpRequests
+                                .requestMatchers("/adm/**")
+                                .hasRole("ADMIN")
+                                .anyRequest()
+                                .permitAll()
                 )
                 .formLogin(
                         formLogin -> formLogin
@@ -45,7 +47,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

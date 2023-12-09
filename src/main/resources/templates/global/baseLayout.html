@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -17,34 +17,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link href="https://jhs512.github.io/toastr/toastr.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/resource/blogbal.css">
-    <script src="resource/global.js"></script>
+    <link rel="stylesheet" href="/resource/global.css">
+    <script src="/resource/global.js"></script>
 
-    <meta name="_csrf" th:content="${_cnrf.token}"/>
-    <meta name="_csrf_header" th:content="_csrf.headerName}"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 <body>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.8/dist/full.min.css" rel="stylesheet" type="text/css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-        <th:block layout:fragment="header"></th:block>
-    <script>
-        const queryParams = getQueryParams();
-        if(queryParams.msg){
-            toastNotice(queryParams.msg);
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.8/dist/full.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<th:block layout:fragment="header"></th:block>
+
+<script>
+    const queryParams = getQueryParams();
+
+    if (queryParams.msg) {
+        toastNotice(queryParams.msg);
+    }
+
+    $(window).bind("pageshow", function (event) {
+        const historyBackMsg = localStorage.getItem('historyBackMsg');
+
+        if (historyBackMsg) {
+            toastWarning(historyBackMsg);
+            localStorage.removeItem('historyBackMsg');
         }
+    });
+</script>
 
-        $(window).bind("pageshow",function(event){
-            const historyBackMsg = localStorage.getItem('historyBackMsg');
+<main class="p-4">
+    <th:block layout:fragment="content"></th:block>
+</main>
 
-            if(historyBackMsg){
-                toastWarning(historyBackMsg);
-                localStorage.removeItem('historyBackMsg');
-            }
-        });
-    </script>
-    <main class="p-4">
-        <th:block layout:fragment="content"></th:block>
-    </main>
 </body>
 </html>
