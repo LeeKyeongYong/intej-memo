@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,9 @@ public class ArticleService {
     }
 
     public List<Article> findAll(){
-        return articleRepository.findAll();
+        List<Article> articles = articleRepository.findAll();
+        Collections.reverse(articles); // 역순으로 정렬
+        return articles;
     }
 
     public Optional<Article> findBId(long id){
