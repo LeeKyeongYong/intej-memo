@@ -3,8 +3,8 @@ package com.memo.intejmemo.global.rq;
 
 import com.memo.intejmemo.global.rsData.RsData;
 import com.memo.intejmemo.util.Ut;
-import com.memo.intejmemo.member.entity.Member;
-import com.memo.intejmemo.member.service.MemberService;
+import com.memo.intejmemo.domain.member.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.service.MemberService;
 import groovy.util.logging.Slf4j;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;

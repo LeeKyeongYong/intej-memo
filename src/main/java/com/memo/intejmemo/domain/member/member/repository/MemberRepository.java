@@ -1,6 +1,6 @@
 package com.memo.intejmemo.member.repository;
 
-import com.memo.intejmemo.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.memo.intejmemo.domain.article.article.entity;
 
 
-import com.memo.intejmemo.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.entity.Member;
 import jakarta.persistence.*;
 import lombok.*;
 

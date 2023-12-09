@@ -1,7 +1,7 @@
 package com.memo.intejmemo.global.security;
 
-import com.memo.intejmemo.member.entity.Member;
-import com.memo.intejmemo.member.service.MemberService;
+import com.memo.intejmemo.domain.member.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

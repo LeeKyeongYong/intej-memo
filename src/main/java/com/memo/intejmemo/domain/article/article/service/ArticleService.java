@@ -3,7 +3,7 @@ package com.memo.intejmemo.domain.article.article.service;
 
 import com.memo.intejmemo.domain.article.article.entity.Article;
 import com.memo.intejmemo.domain.article.article.repository.ArticleRepository;
-import com.memo.intejmemo.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

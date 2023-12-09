@@ -1,4 +1,4 @@
-package com.memo.intejmemo.controller;
+package com.memo.intejmemo.domain.home.home.controller;
 
 import com.memo.intejmemo.global.rq.Rq;
 import jakarta.servlet.http.HttpServletRequest;

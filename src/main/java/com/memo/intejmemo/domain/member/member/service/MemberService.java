@@ -1,8 +1,8 @@
-package com.memo.intejmemo.member.service;
+package com.memo.intejmemo.domain.member.member.service;
 
 import com.memo.intejmemo.global.rsData.RsData;
 import com.memo.intejmemo.member.repository.MemberRepository;
-import com.memo.intejmemo.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

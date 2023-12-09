@@ -2,8 +2,8 @@ package com.memo.intejmemo.global.initData;
 
 import com.memo.intejmemo.base.system.service.SystemService;
 import com.memo.intejmemo.domain.article.article.service.ArticleService;
-import com.memo.intejmemo.member.entity.Member;
-import com.memo.intejmemo.member.service.MemberService;
+import com.memo.intejmemo.domain.member.member.entity.Member;
+import com.memo.intejmemo.domain.member.member.service.MemberService;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

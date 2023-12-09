@@ -1,4 +1,4 @@
-package com.memo.intejmemo.member.entity;
+package com.memo.intejmemo.domain.member.member.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
