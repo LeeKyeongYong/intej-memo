@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SIMPLE</title>
+
+    <!-- 폰트어썸 불러오기 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- 제이쿼리 불러오기 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- toastr 불러오기 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+    <link href="https://jhs512.github.io/toastr/toastr.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/resource/blogbal.css">
+    <script src="resource/global.js"></script>
+
+    <meta name="_csrf" th:content="${_cnrf.token}"/>
+    <meta name="_csrf_header" th:content="_csrf.headerName}"/>
 </head>
 <body>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.8/dist/full.min.css" rel="stylesheet" type="text/css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
 
+        <th:block layout:fragment="header"></th:block>
+    <script>
+        const queryParams = getQueryParams();
+        if(queryParams.msg){
+            toastNotice(queryParams.msg);
+        }
+
+        $(window).bind("pageshow",function(event){
+            const historyBackMsg = localStorage.getItem('historyBackMsg');
+
+            if(historyBackMsg){
+                toastWarning(historyBackMsg);
+                localStorage.removeItem('historyBackMsg');
+            }
+        });
+    </script>
+    <main class="p-4">
+        <th:block layout:fragment="content"></th:block>
+    </main>
 </body>
 </html>

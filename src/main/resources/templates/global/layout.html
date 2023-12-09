@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{global/baseLayout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">SIMPLE</title>
 </head>
 <body>
+    <header layout:fragment="header" class="navbar bg-base-100">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-lincecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h7"/>
+                    </svg>
+                </label>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li th:if="${@rq.admin}"><a href="/adm"><i class="fa-solid fa-gauge-high"></i> 관리자</a></li>
 
+                    <li><a href="/article/list"><i class="fa-solid fa-list"></i> 게시물 목록</a></li>
+
+                    <li th:if="${@rq.logined}"><a href="/article/write"><i class="fa-solid fa-pen"></i> 게시물 작성</a></li>
+
+                    <li th:unless="${@rq.logined}"><a href="/member/login"><i class="fa-solid fa-right-to-bracket"></i>
+                        로그인</a>
+                    </li>
+
+                    <li th:unless="${@rq.logined}"><a href="/member/join"><i class="fa-solid fa-user-plus"></i> 회원가입</a>
+                    </li>
+
+                    <li th:if="${@rq.logined}"><a href="/member/me"><i class="fa-solid fa-user"></i> 내 정보</a></li>
+
+                    <li th:if="${@rq.logined}">
+                        <a href="/member/logout" method="POST"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-center">
+            <a href="/" class="btn btn-ghost text-xl">SIMPLE</a>
+        </div>
+        <div class="navbar-end">
+            <a th:if="${@rq.isLogined}" href="/member/me" class="btn btn-ghost text-xl">
+                <span th:text="|welcome ${@rq.member.username}|"></span>
+            </a>
+        </div>
+    </header>
 </body>
 </html>

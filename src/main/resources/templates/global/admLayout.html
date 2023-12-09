@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{global/baseLayout}">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE">SIMPLE ADMIN</title>
 </head>
 <body>
-
+<header layout:fragment="header" class="navbar bg-base-100">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                    <a href="/article/list">
+                        <i class="fa-solid fa-house"></i> 사이트
+                    </a>
+                </li>
+                <li th:if="${@rq.logined}">
+                    <a href="/member/logout" method="POST"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="navbar-center">
+        <a href="/" class="btn btn-ghost text-xl">SIMPLE ADMIN</a>
+    </div>
+    <div class="navbar-end">
+        <a th:if="${@rq.isLogined}" href="/member/me" class="btn btn-ghost text-xl">
+            <span th:text="|welcome ${@rq.member.username}|"></span>
+        </a>
+    </div>
+</header>
 </body>
 </html>

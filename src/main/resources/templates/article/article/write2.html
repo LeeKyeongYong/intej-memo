@@ -1,38 +1,34 @@
+<!DOCTYPE html>
 <html layout:decorate="~{global/layout}">
-
 <head>
+    <meta charset="UTF-8">
     <title th:text="|게시글 작성 2|"></title>
 </head>
-
 <body>
+    <div layout:fragment="content">
 
-<div layout:fragment="content">
+       <h1 class="font-bold mb-2">
+        <i class="fa-regular fa-pen-to-square"></i> 게시글 작성</h1>
 
-    <h1 class="font-bold mb-2"><i class="fa-solid fa-pen"></i> 게시글 작성</h1>
+        <form th:action class="flex flex-col gap-4" method="POST">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">제목</span>
+                </label>
+                <input type="text" name="title" placeholder="제목을 입력해주세요." class="input input-bordered">
+            </div>
 
-    <form th:action class="flex flex-col gap-4" method="POST">
-
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">제목</span>
-            </label>
-            <input type="text" name="title" placeholder="제목을 입력해주세요." class="input input-bordered">
-        </div>
-
-        <div class="form-control">
-            <label class="label">
-                <span class="label-text">내용</span>
-            </label>
-            <textarea name="body" rows="5" maxlength="10000" placeholder="내용을 입력해주세요."
-                      class="textarea textarea-bordered"></textarea>
-        </div>
-
-        <button class="btn btn-primary btn-block" type="submit">
-            <i class="fa-solid fa-pen"></i> 게시글 작성
-        </button>
-    </form>
-</div>
-
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">내용</span>
+                </label>
+                <textarea name="body" rows="5" maxlength="1000" placeholder="내용을 입력해주세요."
+                          class="textarea textarea-bordered"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">
+                <i class="fa-solid fa-pen"></i>게시글 작성
+            </button>
+        </form>
+    </div>
 </body>
-
 </html>

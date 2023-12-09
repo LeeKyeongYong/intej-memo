@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html layout:decorate="~{global/layout}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>로그인</title>
 </head>
 <body>
+    <div layout:fragment="content">
+        <h1 class="font-bold mb-2"><i class="fa-solid fa-right-tobracket"></i>로그인</h1>
+        <form class="flext flext-col gap-4" method="POST" th:action onsubmit="submitLoginForm(this); return false;">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">아이디</span>
+                </label>
+                <input type="text" name="username" placeholder="아이디를 입력해주세요." class="input input-bordered">
+            </div>
 
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">비밀번호</span>
+                </label>
+                <input type="password" name="password" placeholder="비밀번호를 입력해주세요." class="input input-bordered">
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">
+                <i class="fa-solid fa-right-tobracket"></i> 로그인
+            </button>
+        </form>
+        <script>
+            function submitLoginForm(form){
+                form.username.value = form.username.value.trim();
+
+                if(form.username.value.length == 0){
+                    toastWarning('아이디를 입력해주세요.');
+                    form.username.focus();
+
+                    return;
+                }
+
+                form.password.value = form.password.value.trim();
+
+                if(form.password.value.length ==0){
+                    toastWarning('비밀번호를 입력해주세요.');
+                    form.password.focus();
+
+                    return;
+                }
+                form.submit();
+            }
+        </script>
+    </div>
 </body>
 </html>
